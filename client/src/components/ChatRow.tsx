@@ -8,8 +8,10 @@ interface ChatRowProps {
 const ChatRow = ({ message }: ChatRowProps) => {
   return (
     <li>
-      {message.createdDate && new Date(message.createdDate).toLocaleString()}
-      {message.message}
+      <small>
+        {message.createdDate && new Date(message.createdDate).toLocaleString()}
+      </small>
+      <p>{message.message}</p>
     </li>
   );
 };

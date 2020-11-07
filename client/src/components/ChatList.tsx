@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ChatMessage } from "../lib/types";
 import { ChatRow } from "./";
+import "./ChatList.css";
 
 interface ChatListState {
   messages: ChatMessage[];
@@ -34,7 +35,7 @@ class ChatList extends Component<ChatListProps, ChatListState> {
       return <ChatRow key={row.id} message={row} />;
     });
 
-    return <ul>{list}</ul>;
+    return <ul className="chatlist">{list}</ul>;
   }
 }
 export default ChatList;
