@@ -10,6 +10,9 @@ import reactor.core.publisher.Flux;
 
 import javax.validation.Valid;
 
+@CrossOrigin(value = { "*" },
+        maxAge = 900
+)
 @RestController
 public class ChatMessageController {
     @Autowired
