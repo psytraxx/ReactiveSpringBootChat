@@ -1,10 +1,10 @@
 # Developer Notes
 
-run a local test mongodb
+run with docker-compose
 
-    docker run -p 27017:27017 --rm  mongo
+    docker-compose up --build
 
-API Usage
+## API Usage
 
 [GET]
 
@@ -23,10 +23,6 @@ Content-Type application/json
         "recipient":"recipient"
 
     }
-
-run outside docker
-
-./gradlew bootRun
 
 ## References
 
