@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <ChatList channelId={1} />
-      <ChatForm channelId={1} />
+      <ChatForm channelId={1} sender="sender name" />
     </div>
   );
 }

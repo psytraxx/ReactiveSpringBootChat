@@ -32,7 +32,7 @@ class ChatList extends Component<ChatListProps, ChatListState> {
 
   render() {
     const list = this.state.messages.map((row) => {
-      return <ChatRow key={row.id} message={row} />;
+      return <ChatRow key={row.id} item={row} />;
     });
 
     return <ul className="chatlist">{list}</ul>;

@@ -3,9 +3,10 @@ import { addMessage } from "../lib/api";
 
 interface ChatFormProps {
   channelId: number;
+  sender: string;
 }
 
-const ChatForm = ({ channelId }: ChatFormProps) => {
+const ChatForm = ({ channelId, sender }: ChatFormProps) => {
   const [message, setMessage] = React.useState("");
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value);
@@ -13,7 +14,7 @@ const ChatForm = ({ channelId }: ChatFormProps) => {
 
   const sendMessage = () => {
     if (message !== "") {
-      addMessage({ channelId, message });
+      addMessage({ channelId, message, sender });
       setMessage("");
     }
   };

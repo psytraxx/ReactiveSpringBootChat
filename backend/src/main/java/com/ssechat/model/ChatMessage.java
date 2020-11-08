@@ -5,19 +5,20 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
-import java.util.Date;
 
 @Document(collection = "chatmessages")
 public class ChatMessage {
     @Id
     private String id;
     private String message;
+    private String sender;
     @CreatedDate
     private Instant createdDate = Instant.now();
     private String channelId;
 
-    public ChatMessage(String id, String message, String channelId) {
+    public ChatMessage(String id, String message, String sender, String channelId) {
         this.message = message;
+        this.sender = sender;
         this.channelId = channelId;
         this.id = id;
     }
@@ -52,5 +53,13 @@ public class ChatMessage {
 
     public void setCreatedDate(Instant createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public String getSender() {
+        return sender;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 }

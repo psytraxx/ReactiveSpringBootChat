@@ -2,16 +2,17 @@ import React from "react";
 import { ChatMessage } from "../lib/types";
 
 interface ChatRowProps {
-  message: ChatMessage;
+  item: ChatMessage;
 }
 
-const ChatRow = ({ message }: ChatRowProps) => {
+const ChatRow = ({ item }: ChatRowProps) => {
   return (
     <li>
+      <small>{item.sender}</small>
+      <p>{item.message}</p>
       <small>
-        {message.createdDate && new Date(message.createdDate).toLocaleString()}
+        {item.createdDate && new Date(item.createdDate).toLocaleString()}
       </small>
-      <p>{message.message}</p>
     </li>
   );
 };
