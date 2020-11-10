@@ -6,6 +6,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
 
+/**
+ * message entity - you can find the same contract in the typescript types.d.ts definition
+ */
 @Document(collection = "chatmessages")
 public class ChatMessage {
     @Id

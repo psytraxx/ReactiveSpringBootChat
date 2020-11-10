@@ -13,6 +13,11 @@ import javax.validation.Valid;
 @CrossOrigin(value = { "*" },
         maxAge = 900
 )
+/**
+ * get chat message event stream and allow adding of new messages
+ * crossdomain * open to allow react client  -
+ * i would remove this and run a nginx in the future serving both client and server
+ */
 @RestController
 public class ChatMessageController {
     @Autowired

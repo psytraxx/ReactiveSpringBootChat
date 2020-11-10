@@ -11,6 +11,9 @@ import org.springframework.data.mongodb.core.CollectionOptions;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import reactor.core.Disposable;
 
+/**
+ * launch spring boot app and create capped collection for chat message collection
+ */
 @SpringBootApplication
 public class Application {
 
