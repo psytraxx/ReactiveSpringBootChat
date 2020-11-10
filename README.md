@@ -39,7 +39,7 @@ http://localhost:3000/
 - add SECURITY - this chat is wide open
 - add some nginx proxy in front of the react app and the backend app
 - add swagger for the backend api
-- CSS!!! - i seriosly did run out of time - i would have grabbed a few nice tailwind components
+- CSS!!! - i seriosly did run out of time - i would have grabbed a few nice tailwind components - make the input field stay at the bottom - content scrollable
 
 ## API Usage
 
