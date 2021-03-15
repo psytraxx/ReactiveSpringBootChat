@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { ChatMessage } from "../lib/types";
 import { ChatRow } from "./";
-import "./ChatList.css";
 
 interface ChatListState {
   messages: ChatMessage[];
