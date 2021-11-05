@@ -1,5 +1,9 @@
 # Developer Notes
 
+[![Java CI with Gradle](https://github.com/psytraxx/ReactiveSpringBootChat/actions/workflows/gradle.yml/badge.svg)](https://github.com/psytraxx/ReactiveSpringBootChat/actions/workflows/gradle.yml)
+
+[![NodeJS with Grunt](https://github.com/psytraxx/ReactiveSpringBootChat/actions/workflows/npm-grunt.yml/badge.svg)](https://github.com/psytraxx/ReactiveSpringBootChat/actions/workflows/npm-grunt.yml)
+
 ## About the solution
 
 A few years ago I wrote a realtime chat scaling to infinite for a social TV startup which was based on Socket.io and used Layer 4 Load Balancing and Redis Pub/Sub to glue multiple Socket.io together. This worked very well in production and I would chose it again.
