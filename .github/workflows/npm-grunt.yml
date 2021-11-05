@@ -1,5 +1,8 @@
 name: NodeJS with Grunt
 
+defaults:
+  run:
+    working-directory: ./client
 on:
   push:
     branches: [ master ]
