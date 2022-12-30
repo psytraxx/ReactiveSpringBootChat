@@ -25,7 +25,7 @@ At the bottom of the this document I added a todo list of things I would have de
 2.  run with docker-compose in the root of the project
 
         cd sse-chat/
-        docker-compose up --build
+        docker compose up --build
 
 access the react frontend at
 
