@@ -11,9 +11,9 @@ import org.springframework.web.reactive.function.BodyInserters;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-/**
- * an easy integration test - depends on a running mongodb which is not ideal and needs further work - use dedicated mongoconfig
- * setup test collection - etc ...
+/*
+  an easy integration test - depends on a running mongodb which is not ideal and needs further work - use dedicated mongoconfig
+  setup test collection - etc ...
  */
 public class ChatMessageControllerTest {
 
@@ -40,12 +40,13 @@ public class ChatMessageControllerTest {
 	public void addStream() throws Exception {
 		webTestClient.post().uri("/chats")
 				.header("Content-Type","application/json")
-				.body(BodyInserters.fromObject("{\n" +
-						"    \"message\": \"xxxx\",\n" +
-						"    \"channelId\": \"1\",\n" +
-						"    \"sender\": \"sender2\",\n" +
-						"    \"recipient\": \"recipient2\"\n" +
-						"}"))
+				.body(BodyInserters.fromValue("""
+						{
+						    "message": "xxxx",
+						    "channelId": "1",
+						    "sender": "sender2",
+						    "recipient": "recipient2"
+						}"""))
 				.exchange()
 				.expectStatus().isCreated();
 	}
