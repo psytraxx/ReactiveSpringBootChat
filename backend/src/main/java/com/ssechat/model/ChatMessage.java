@@ -1,5 +1,8 @@
 package com.ssechat.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,6 +13,9 @@ import java.time.Instant;
  * message entity - you can find the same contract in the typescript types.d.ts definition
  */
 @Document(collection = "chatmessages")
+@Getter
+@Setter
+@NoArgsConstructor
 public class ChatMessage {
     @Id
     private String id;
@@ -18,51 +24,4 @@ public class ChatMessage {
     @CreatedDate
     private Instant createdDate = Instant.now();
     private String channelId;
-
-    public ChatMessage(String id, String message, String sender, String channelId) {
-        this.message = message;
-        this.sender = sender;
-        this.channelId = channelId;
-        this.id = id;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getChannelId() {
-        return channelId;
-    }
-
-    public void setChannelId(String channelId) {
-        this.channelId = channelId;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Instant getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Instant createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public String getSender() {
-        return sender;
-    }
-
-    public void setSender(String sender) {
-        this.sender = sender;
-    }
 }
