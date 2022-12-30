@@ -12,7 +12,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: backend
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 1.8
@@ -22,5 +24,4 @@ jobs:
           cache: "gradle"
           java-version: "17"
       - name: Build with Gradle
-        working-directory: backend
-        run: gradlew build --no-daemon
+        run: ./gradlew build --no-daemon
