@@ -1,12 +1,11 @@
 plugins {
-	id 'org.springframework.boot' version '2.5.6'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id "org.springframework.boot" version "3.0.1"
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 group = 'com.ssechat'
 version = '0.0.1'
-sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
@@ -17,7 +16,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+	implementation group: 'javax.validation', name: 'validation-api', version: '2.0.0.Final'
 	// end::actuator[]
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// tag::tests[]
