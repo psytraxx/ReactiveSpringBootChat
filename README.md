@@ -66,3 +66,17 @@ Content-Type application/json
         "channelId":1,
         "sender": "send name"
     }
+
+### Useful
+
+Run client local
+
+    yarn dev
+
+Run mongodb in docker
+
+    docker compose up mongodb
+
+Run server local
+
+    ./gradlew bootRun
