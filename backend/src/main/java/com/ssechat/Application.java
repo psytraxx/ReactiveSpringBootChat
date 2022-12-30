@@ -1,6 +1,7 @@
 package com.ssechat;
 
 import com.ssechat.model.ChatMessage;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationRunner;
@@ -44,6 +45,11 @@ public class Application {
             }
 
         };
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 
 }

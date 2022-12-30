@@ -71,7 +71,7 @@ Content-Type application/json
 
 Run client local
 
-    yarn dev
+    yarn start
 
 Run mongodb in docker
 
