@@ -24,4 +24,5 @@ jobs:
           cache: "gradle"
           java-version: "17"
       - name: Build with Gradle
-        run: ./gradlew build --no-daemon
+        #run: ./gradlew build --no-daemon - build runs test - will fail because no running mongodb instance
+        run: ./gradlew bootJar --no-daemon
