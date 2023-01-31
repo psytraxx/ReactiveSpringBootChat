@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { ChatMessage } from "../lib/types";
 import { ChatRow } from "./";
 

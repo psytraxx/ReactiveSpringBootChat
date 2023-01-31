@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import { ChatList, ChatForm } from "./components";
 
