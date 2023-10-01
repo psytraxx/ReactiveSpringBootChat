@@ -18,16 +18,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '3.0.2'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.1'
-	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
-	annotationProcessor 'org.projectlombok:lombok:1.18.28'
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
+	annotationProcessor 'org.projectlombok:lombok:1.18.30'
 	// end::actuator[]
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// tag::tests[]
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	testCompileOnly 'org.projectlombok:lombok:1.18.28'
-	testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+	testCompileOnly 'org.projectlombok:lombok:1.18.30'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.3'
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.3'
 	// end::tests[]
