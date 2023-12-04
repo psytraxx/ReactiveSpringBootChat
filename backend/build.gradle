@@ -17,7 +17,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '3.0.2'
-	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.1'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.0'
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
 	annotationProcessor 'org.projectlombok:lombok:1.18.28'
 	// end::actuator[]
