@@ -7,11 +7,11 @@ on:
   push:
     branches: [master]
     paths:
-      - frontend/**
+      - client/**
   pull_request:
     branches: [master]
     paths:
-      - frontend/**
+      - client/**
 jobs:
   build:
     runs-on: ubuntu-latest
