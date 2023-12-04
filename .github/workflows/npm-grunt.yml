@@ -8,10 +8,12 @@ on:
     branches: [master]
     paths:
       - client/**
+      - .github/**
   pull_request:
     branches: [master]
     paths:
       - client/**
+      - .github/**
 jobs:
   build:
     runs-on: ubuntu-latest
