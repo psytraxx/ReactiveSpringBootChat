@@ -3,6 +3,10 @@
 
 name: Java CI with Gradle
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   push:
     branches: [master]
@@ -20,9 +24,9 @@ jobs:
       run:
         working-directory: backend
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v3
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           cache: "gradle"
