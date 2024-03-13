@@ -1,40 +1,33 @@
-import { Component } from "react";
-import { ChatMessage } from "../lib/types";
-import { ChatRow } from "./";
+import React, { useState, useEffect } from 'react';
+import { ChatMessage } from '../lib/types';
+import ChatRow from './ChatRow';
 
-interface ChatListState {
-  messages: ChatMessage[];
-}
 
 interface ChatListProps {
   channelId: number;
 }
 
-const url = process.env.API_BASE_URL
-  ? process.env.API_BASE_URL
-  : "http://localhost:8080";
+const url = process.env.API_BASE_URL || 'http://localhost:8080';
 
-class ChatList extends Component<ChatListProps, ChatListState> {
-  state: ChatListState = { messages: [] };
+const ChatList: React.FC<ChatListProps> = ({ channelId }) => {
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
 
-  // After the component did mount, we set the state each second.
-  componentDidMount() {
-    const source = new EventSource(
-      `${url}/chats/stream?channelId=${this.props.channelId}`
-    );
+  useEffect(() => {
+    const source = new EventSource(`${url}/chats/stream?channelId=${channelId}`);
 
     source.onmessage = (event) => {
-      const messages = this.state.messages.concat(JSON.parse(event.data));
-      this.setState({ messages });
+      const newMessage = JSON.parse(event.data) as ChatMessage;
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
     };
-  }
 
-  render() {
-    const list = this.state.messages.map((row) => {
-      return <ChatRow key={row.id} item={row} />;
-    });
+    return () => {
+      source.close();
+    };
+  }, [channelId]);
 
-    return <ul className="chatlist">{list}</ul>;
-  }
-}
+  const list = messages.map((row) => <ChatRow key={row.id} item={row} />);
+
+  return <ul className="chatlist">{list}</ul>;
+};
+
 export default ChatList;

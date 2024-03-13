@@ -1,8 +1,6 @@
 import { ChatMessage } from "./types";
 
-const url = process.env.API_BASE_URL
-  ? process.env.API_BASE_URL
-  : "http://localhost:8080";
+const url = process?.env?.API_BASE_URL || "http://localhost:8080";
 
 export async function addMessage(item: ChatMessage) {
   const data = await fetch(`${url}/chats`, {
