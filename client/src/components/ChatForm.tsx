@@ -1,4 +1,4 @@
-import React, { ChangeEvent, KeyboardEvent, MouseEvent } from "react";
+import { ChangeEvent, KeyboardEvent, MouseEvent, useState } from "react";
 import { addMessage } from "../lib/api";
 
 interface ChatFormProps {
@@ -7,7 +7,7 @@ interface ChatFormProps {
 }
 
 const ChatForm = ({ channelId, sender }: ChatFormProps) => {
-  const [message, setMessage] = React.useState("");
+  const [message, setMessage] = useState("");
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value);
   };

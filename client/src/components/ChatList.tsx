@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, FC } from 'react';
 import { ChatMessage } from '../lib/types';
 import ChatRow from './ChatRow';
 
@@ -9,7 +9,7 @@ interface ChatListProps {
 
 const url = process.env.API_BASE_URL || 'http://localhost:8080';
 
-const ChatList: React.FC<ChatListProps> = ({ channelId }) => {
+const ChatList: FC<ChatListProps> = ({ channelId }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
 
   useEffect(() => {
