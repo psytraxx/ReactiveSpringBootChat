@@ -1,7 +1,6 @@
-import { useState, useEffect, FC } from 'react';
-import { ChatMessage } from '../lib/types';
+import { type FC, useEffect, useState } from 'react';
+import type { ChatMessage } from '../lib/types';
 import ChatRow from './ChatRow';
-
 
 interface ChatListProps {
   channelId: number;

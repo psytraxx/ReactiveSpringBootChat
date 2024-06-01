@@ -1,5 +1,5 @@
-import { ChangeEvent, KeyboardEvent, MouseEvent, useState } from "react";
-import { addMessage } from "../lib/api";
+import { type ChangeEvent, type KeyboardEvent, type MouseEvent, useState } from 'react';
+import { addMessage } from '../lib/api';
 
 interface ChatFormProps {
   channelId: number;
@@ -7,20 +7,20 @@ interface ChatFormProps {
 }
 
 const ChatForm = ({ channelId, sender }: ChatFormProps) => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value);
   };
 
   const sendMessage = () => {
-    if (message !== "") {
+    if (message !== '') {
       addMessage({ channelId, message, sender });
-      setMessage("");
+      setMessage('');
     }
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       sendMessage();
     }
   };

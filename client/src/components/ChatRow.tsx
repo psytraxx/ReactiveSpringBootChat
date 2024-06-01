@@ -1,4 +1,4 @@
-import { ChatMessage } from "../lib/types";
+import type { ChatMessage } from '../lib/types';
 
 interface ChatRowProps {
   item: ChatMessage;
@@ -9,9 +9,7 @@ const ChatRow = ({ item }: ChatRowProps) => {
     <li>
       <small>{item.sender}</small>
       <p>{item.message}</p>
-      <small>
-        {item.createdDate && new Date(item.createdDate).toLocaleString()}
-      </small>
+      <small>{item.createdDate && new Date(item.createdDate).toLocaleString()}</small>
     </li>
   );
 };
