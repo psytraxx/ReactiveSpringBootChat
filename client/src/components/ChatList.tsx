@@ -1,4 +1,5 @@
 import { type FC, useEffect, useState } from 'react';
+import { getBaseUrl } from '../lib/api';
 import type { ChatMessage } from '../lib/types';
 import ChatRow from './ChatRow';
 
@@ -6,13 +7,11 @@ interface ChatListProps {
   channelId: number;
 }
 
-const url = process.env.API_BASE_URL || 'http://localhost:8080';
-
 const ChatList: FC<ChatListProps> = ({ channelId }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
 
   useEffect(() => {
-    const source = new EventSource(`${url}/chats/stream?channelId=${channelId}`);
+    const source = new EventSource(`${getBaseUrl()}/chats/stream?channelId=${channelId}`);
 
     source.onmessage = (event) => {
       const newMessage = JSON.parse(event.data) as ChatMessage;
