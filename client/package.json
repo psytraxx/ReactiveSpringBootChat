@@ -11,7 +11,7 @@
     "@biomejs/biome": "^1.8.2",
     "@farmfe/cli": "^1.0.2",
     "@farmfe/core": "^1.2.0",
-    "@farmfe/plugin-react": "^1.1.0",
+    "@farmfe/plugin-react": "^1.2.0",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
