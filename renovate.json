@@ -8,7 +8,9 @@
     ":automergeMinor",
     ":automergePr",
     ":label(renovate)",
-    ":dependencyDashboard"
+    ":dependencyDashboard",
+    "group:allNonMajor",
+    "group:allDigest"
   ],
   "vulnerabilityAlerts": {
     "labels": [
