@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id "org.springframework.boot" version "3.3.7"
+	id "org.springframework.boot" version "3.4.1"
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -28,8 +28,8 @@ dependencies {
 	}
 	testCompileOnly 'org.projectlombok:lombok:1.18.36'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
-	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.5'
-	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.5'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.4'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.11.4'
 	// end::tests[]
 }
 
