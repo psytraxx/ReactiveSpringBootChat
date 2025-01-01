@@ -1,7 +1,7 @@
 plugins {
 	id 'java'
-	id "org.springframework.boot" version "3.3.0"
-    id 'io.spring.dependency-management' version '1.1.4'
+	id "org.springframework.boot" version "3.3.7"
+    id 'io.spring.dependency-management' version '1.1.7'
 }
 
 group = 'com.ssechat'
@@ -17,19 +17,19 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '3.1.0'
-	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.1'
-	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.32'
-	annotationProcessor 'org.projectlombok:lombok:1.18.32'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.2'
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.36'
+	annotationProcessor 'org.projectlombok:lombok:1.18.36'
 	// end::actuator[]
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// tag::tests[]
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	testCompileOnly 'org.projectlombok:lombok:1.18.32'
-	testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
-	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
-	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+	testCompileOnly 'org.projectlombok:lombok:1.18.36'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.5'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.5'
 	// end::tests[]
 }
 
