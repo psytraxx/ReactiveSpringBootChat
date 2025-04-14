@@ -3,43 +3,43 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.8.2",
-    "@farmfe/cli": "^1.0.2",
-    "@farmfe/core": "^1.2.0",
-    "@farmfe/plugin-react": "^1.1.0",
-    "@testing-library/jest-dom": "^6.4.6",
-    "@testing-library/react": "^16.0.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/user-event": "^14.5.2",
-    "@types/eventsource": "^1.1.15",
-    "@types/jest": "^29.5.12",
-    "@types/node": "^20.14.8",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@types/node": "^22.14.1",
+    "@types/react": "^19.1.1",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/ui": "^3.1.1",
     "core-js": "^3.37.1",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^26.1.0",
     "react-refresh": "^0.17.0",
-    "ts-jest": "^29.1.5",
-    "typescript": "^5.5.2"
+    "typescript": "^5.8.3",
+    "vite": "^6.2.5",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.1.1"
   },
   "scripts": {
-    "start": "farm start",
-    "build": "farm build",
-    "serve": "farm preview",
+    "dev": "vite",
+    "build": "tsc && vite build",
     "lint": "biome check --write src/*",
-    "test": "jest"
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {

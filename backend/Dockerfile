@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-alpine
+FROM eclipse-temurin:21-alpine
 
 COPY . /project
 RUN  cd /project && ./gradlew bootJar
