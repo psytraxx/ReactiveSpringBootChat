@@ -13,17 +13,17 @@ class ModelMapperTest {
     private ModelMapper mapper;
 
     @BeforeEach
-    public void setup() {
+    void setup() {
         this.mapper = new ModelMapper();
     }
 
     @Test
     void whenMapDTOWithExactMatch_thenConvertsToEntity() {
-        // when similar source object is provided
+        // When similar source object is provided
         ChatMessageDTO input = new ChatMessageDTO();
         ChatMessage chatMessage = this.mapper.map(input, ChatMessage.class);
 
-        // then it maps by default
+        // Then it maps by default
         assertEquals(input.getSender(), chatMessage.getSender());
         assertEquals(input.getMessage(), chatMessage.getMessage());
         assertEquals(input.getChannelId(), chatMessage.getChannelId());

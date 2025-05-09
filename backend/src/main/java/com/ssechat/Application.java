@@ -13,24 +13,27 @@ import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import reactor.core.Disposable;
 
 /**
- * launch spring boot app and create capped collection for chat message collection
+ * Launch Spring Boot app and create capped collection for chat message collection.
  */
 @SpringBootApplication
 public class Application {
 
-    Logger logger = LoggerFactory.getLogger(Application.class);
+    final Logger logger = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
+    /**
+     * Ensures the capped collection for chat messages exists on startup.
+     */
     @Bean
     ApplicationRunner onStart(ReactiveMongoTemplate template) {
 
         return args -> {
 
-            // mongo will create a new collection a document gets persisted and doesnt exits -
-            // in this case i had to create it on startup because it needs to be a capped collection
+            // Mongo will create a new collection when a document gets persisted and doesn't exist.
+            // In this case, we need to create it on startup because it needs to be a capped collection.
 
             CollectionOptions options = CollectionOptions.empty()
                     .capped().size(5000000)
@@ -40,13 +43,16 @@ public class Application {
                 Disposable result = template.createCollection(ChatMessage.class, options).subscribe();
                 result.dispose();
             } catch (Exception e) {
-                // i am not a fan of generic catchall - still - i didnt want to loose to much time here
+                // Not a fan of generic catch-all, but didn't want to lose too much time here.
                 logger.info(e.getMessage());
             }
 
         };
     }
 
+    /**
+     * Provides a ModelMapper bean for DTO/entity mapping.
+     */
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();

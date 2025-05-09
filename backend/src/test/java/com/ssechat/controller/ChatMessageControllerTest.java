@@ -12,16 +12,16 @@ import org.springframework.web.reactive.function.BodyInserters;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 /*
-  an easy integration test - depends on a running mongodb which is not ideal and needs further work - use dedicated mongoconfig
-  setup test collection - etc ...
+  An easy integration test - depends on a running MongoDB which is not ideal and needs further work.
+  Use dedicated Mongo config, setup test collection, etc.
  */
-public class ChatMessageControllerTest {
+class ChatMessageControllerTest {
 
     @Autowired
     private WebTestClient webTestClient;
 
     @Test
-    public void getChatStream() throws Exception {
+	void getChatStream() {
         webTestClient.get().uri("/chats/stream?channelId=1")
 				.accept(MediaType.TEXT_EVENT_STREAM)
 				.exchange()
@@ -29,7 +29,7 @@ public class ChatMessageControllerTest {
     }
 
 	@Test
-	public void addStreamNoBody() throws Exception {
+	void addStreamNoBody() {
 		webTestClient.post().uri("/chats")
 				.header("Content-Type","application/json")
 				.exchange()
@@ -37,7 +37,7 @@ public class ChatMessageControllerTest {
 	}
 
 	@Test
-	public void addStream() throws Exception {
+	void addStream() {
 		webTestClient.post().uri("/chats")
 				.header("Content-Type","application/json")
 				.body(BodyInserters.fromValue("""

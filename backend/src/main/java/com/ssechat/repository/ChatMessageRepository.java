@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
 /**
- * this is mostly black magic - i used this to save me some time
+ * This is mostly black magic - I used this to save some time.
+ * Repository for chat messages with tailable cursor support.
  */
 
 @Repository
