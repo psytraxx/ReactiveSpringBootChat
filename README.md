@@ -83,3 +83,5 @@ Run server local
 Run backend tests
 
     ./gradlew test
+
+The HTML report can be found at `backend/build/reports/jacoco/test/html/index.html`.

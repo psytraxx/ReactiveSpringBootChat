@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id "org.springframework.boot" version "3.4.5"
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'jacoco' // Add JaCoCo plugin
 }
 
 group = 'com.ssechat'
@@ -30,6 +31,7 @@ dependencies {
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
 	testImplementation platform('org.junit:junit-bom:5.12.2') 
 	testImplementation 'org.junit.jupiter:junit-jupiter'
+	testImplementation 'io.projectreactor:reactor-test' // Add this for StepVerifier
 
 	// Testcontainers
 	testImplementation platform('org.testcontainers:testcontainers-bom:1.20.0')
@@ -40,4 +42,18 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport // report is always generated after tests run
+}
+
+jacoco {
+    toolVersion = "0.8.12" // Specify JaCoCo version
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+    reports {
+        xml.required = true
+        html.required = true
+        csv.required = false
+    }
 }
