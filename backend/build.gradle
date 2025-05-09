@@ -23,13 +23,18 @@ dependencies {
 	// end::actuator[]
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// tag::tests[]
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+	// Add Spring Boot's core testing module
+	testImplementation 'org.springframework.boot:spring-boot-test'
+
 	testCompileOnly 'org.projectlombok:lombok:1.18.38'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
-	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.12.2'
-	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.12.2'
+	testImplementation platform('org.junit:junit-bom:5.12.2') 
+	testImplementation 'org.junit.jupiter:junit-jupiter'
+
+	// Testcontainers
+	testImplementation platform('org.testcontainers:testcontainers-bom:1.20.0')
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.testcontainers:mongodb'
 	// end::tests[]
 }
 

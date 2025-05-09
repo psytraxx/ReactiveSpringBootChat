@@ -5,23 +5,37 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
+import org.testcontainers.containers.MongoDBContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.utility.DockerImageName;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Testcontainers
 /*
-  an easy integration test - depends on a running mongodb which is not ideal and needs further work - use dedicated mongoconfig
-  setup test collection - etc ...
+  Integration test using Testcontainers to spin up a MongoDB instance.
  */
-public class ChatMessageControllerTest {
+class ChatMessageControllerTest {
+
+    @Container
+    static MongoDBContainer mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:8")); // Or your desired MongoDB version
+
+    @DynamicPropertySource
+    static void setProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.data.mongodb.uri", mongoDBContainer::getReplicaSetUrl);
+    }
 
     @Autowired
     private WebTestClient webTestClient;
 
     @Test
-    public void getChatStream() throws Exception {
+	void getChatStream() {
         webTestClient.get().uri("/chats/stream?channelId=1")
 				.accept(MediaType.TEXT_EVENT_STREAM)
 				.exchange()
@@ -29,7 +43,7 @@ public class ChatMessageControllerTest {
     }
 
 	@Test
-	public void addStreamNoBody() throws Exception {
+	void addStreamNoBody() {
 		webTestClient.post().uri("/chats")
 				.header("Content-Type","application/json")
 				.exchange()
@@ -37,7 +51,7 @@ public class ChatMessageControllerTest {
 	}
 
 	@Test
-	public void addStream() throws Exception {
+	void addStream() {
 		webTestClient.post().uri("/chats")
 				.header("Content-Type","application/json")
 				.body(BodyInserters.fromValue("""

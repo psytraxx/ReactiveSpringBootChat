@@ -33,6 +33,7 @@ jobs:
           distribution: "temurin"
           cache: "gradle"
           java-version: "21"
-      - name: Build with Gradle
-        #run: ./gradlew build --no-daemon - build runs test - will fail because no running mongodb instance
-        run: ./gradlew bootJar --no-daemon
+      - name: Test
+        run: ./gradlew test
+      - name: Build
+        run: ./gradlew bootJar
