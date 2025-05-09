@@ -1,0 +1,33 @@
+version: "2.1"
+
+networks:
+  chat:
+
+services:
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    environment:
+      - DB_HOST=mongodb
+    ports:
+      - "8080:8080"
+    networks:
+      - chat
+
+  client:
+    build:
+      context: client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - chat
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - chat

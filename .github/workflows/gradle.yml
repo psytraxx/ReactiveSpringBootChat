@@ -1,0 +1,38 @@
+# This workflow will build a Java project with Gradle
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
+
+name: Java CI
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - backend/**
+      - .github/**
+  pull_request:
+    branches: [master]
+    paths:
+      - backend/**
+      - .github/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          cache: "gradle"
+          java-version: "21"
+      - name: Build with Gradle
+        #run: ./gradlew build --no-daemon - build runs test - will fail because no running mongodb instance
+        run: ./gradlew bootJar --no-daemon

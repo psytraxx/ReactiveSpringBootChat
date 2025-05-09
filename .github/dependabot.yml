@@ -1,0 +1,13 @@
+# Documentation:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: "gradle"
+    directory: "/backend"
+    schedule:
+      interval: "monthly"
+  - package-ecosystem: "npm"
+    directory: "/client"
+    schedule:
+      interval: "monthly"

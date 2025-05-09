@@ -1,0 +1,38 @@
+plugins {
+	id 'java'
+	id "org.springframework.boot" version "3.4.5"
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.ssechat'
+version = '0.0.1'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// tag::actuator[]
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '3.1.1'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.2'
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.38'
+	annotationProcessor 'org.projectlombok:lombok:1.18.38'
+	// end::actuator[]
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// tag::tests[]
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testCompileOnly 'org.projectlombok:lombok:1.18.38'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.12.2'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.12.2'
+	// end::tests[]
+}
+
+test {
+	useJUnitPlatform()
+}

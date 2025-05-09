@@ -1,0 +1,12 @@
+.chatlist {
+	list-style-type: none;
+	padding: 0pt;
+}
+
+.chatlist li {
+	background: white;
+	padding: 10pt;
+}
+.chatlist li:nth-child(odd) {
+	background: whitesmoke;
+}
