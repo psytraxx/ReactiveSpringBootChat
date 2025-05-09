@@ -1,8 +1,7 @@
 # Developer Notes
 
 [![Java CI with Gradle](https://github.com/psytraxx/ReactiveSpringBootChat/actions/workflows/gradle.yml/badge.svg)](https://github.com/psytraxx/ReactiveSpringBootChat/actions/workflows/gradle.yml)
-
-[![NodeJS with Grunt](https://github.com/psytraxx/ReactiveSpringBootChat/actions/workflows/npm-grunt.yml/badge.svg)](https://github.com/psytraxx/ReactiveSpringBootChat/actions/workflows/npm-grunt.yml)
+[![Client CI](https://github.com/psytraxx/ReactiveSpringBootChat/actions/workflows/client.yml/badge.svg)](https://github.com/psytraxx/ReactiveSpringBootChat/actions/workflows/client.yml)
 
 ## About the solution
 
@@ -20,14 +19,14 @@ At the bottom of the this document I added a todo list of things I would have de
 
 # Run the Demo
 
-1.  clone this repo from github
+1.  Clone this repo from github
 
-2.  run with docker-compose in the root of the project
+2.  Run with docker-compose in the root of the project
 
-        cd sse-chat/
+        cd ReactiveSpringBootChat/
         docker compose up --build
 
-access the react frontend at
+Access the React frontend at
 
 http://localhost:3000/
 
@@ -71,7 +70,7 @@ Content-Type application/json
 
 Run client local
 
-    npm run serve
+    npm run dev
 
 Run mongodb in docker
 
@@ -80,3 +79,7 @@ Run mongodb in docker
 Run server local
 
     ./gradlew bootRun
+
+Run backend tests
+
+    ./gradlew test
