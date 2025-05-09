@@ -5,12 +5,12 @@ defaults:
     working-directory: ./client
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - client/**
       - .github/**
   pull_request:
-    branches: [master]
+    branches: [main]
     paths:
       - client/**
       - .github/**

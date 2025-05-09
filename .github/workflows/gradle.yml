@@ -9,12 +9,12 @@ concurrency:
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - backend/**
       - .github/**
   pull_request:
-    branches: [master]
+    branches: [main]
     paths:
       - backend/**
       - .github/**
