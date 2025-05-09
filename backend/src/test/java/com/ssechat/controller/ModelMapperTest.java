@@ -10,6 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ModelMapperTest {
 
+    private static final String MESSAGE = "test-message";
+    private static final String SENDER = "test-sender";
+    private static final String CHANNEL_ID = "42";
+    private static final String ID = "id-123";
+
     private ModelMapper mapper;
 
     @BeforeEach
@@ -19,13 +24,17 @@ class ModelMapperTest {
 
     @Test
     void whenMapDTOWithExactMatch_thenConvertsToEntity() {
-        // When similar source object is provided
         ChatMessageDTO input = new ChatMessageDTO();
+        input.setMessage(MESSAGE);
+        input.setSender(SENDER);
+        input.setChannelId(CHANNEL_ID);
+        input.setId(ID);
+
         ChatMessage chatMessage = this.mapper.map(input, ChatMessage.class);
 
-        // Then it maps by default
-        assertEquals(input.getSender(), chatMessage.getSender());
-        assertEquals(input.getMessage(), chatMessage.getMessage());
-        assertEquals(input.getChannelId(), chatMessage.getChannelId());
+        assertEquals(SENDER, chatMessage.getSender());
+        assertEquals(MESSAGE, chatMessage.getMessage());
+        assertEquals(CHANNEL_ID, chatMessage.getChannelId());
+        assertEquals(ID, chatMessage.getId());
     }
 }
