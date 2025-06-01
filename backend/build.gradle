@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id "org.springframework.boot" version "3.4.5"
+	id "org.springframework.boot" version "3.4.6"
     id 'io.spring.dependency-management' version '1.1.7'
     id 'jacoco' // Add JaCoCo plugin
 }
@@ -34,7 +34,7 @@ dependencies {
 	testImplementation 'io.projectreactor:reactor-test' // Add this for StepVerifier
 
 	// Testcontainers
-	testImplementation platform('org.testcontainers:testcontainers-bom:1.20.0')
+	testImplementation platform('org.testcontainers:testcontainers-bom:1.20.6')
 	testImplementation 'org.testcontainers:junit-jupiter'
 	testImplementation 'org.testcontainers:mongodb'
 	// end::tests[]
@@ -46,7 +46,7 @@ test {
 }
 
 jacoco {
-    toolVersion = "0.8.12" // Specify JaCoCo version
+    toolVersion = "0.8.13" // Specify JaCoCo version
 }
 
 jacocoTestReport {
