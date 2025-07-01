@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id "org.springframework.boot" version "3.5.0"
+	id "org.springframework.boot" version "3.5.3"
     id 'io.spring.dependency-management' version '1.1.7'
     id 'jacoco' // Add JaCoCo plugin
 }
@@ -18,7 +18,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '3.1.1'
-	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.3'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.4'
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.38'
 	annotationProcessor 'org.projectlombok:lombok:1.18.38'
 	// end::actuator[]
@@ -29,12 +29,12 @@ dependencies {
 
 	testCompileOnly 'org.projectlombok:lombok:1.18.38'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
-	testImplementation platform('org.junit:junit-bom:5.13.0')
+	testImplementation platform('org.junit:junit-bom:5.13.2')
 	testImplementation 'org.junit.jupiter:junit-jupiter'
 	testImplementation 'io.projectreactor:reactor-test' // Add this for StepVerifier
 
 	// Test containers
-	testImplementation platform('org.testcontainers:testcontainers-bom:1.21.1')
+	testImplementation platform('org.testcontainers:testcontainers-bom:1.21.3')
 	testImplementation 'org.testcontainers:junit-jupiter'
 	testImplementation 'org.testcontainers:mongodb'
 	// end::tests[]
