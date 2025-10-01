@@ -19,16 +19,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '3.1.1'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.4'
-	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.38'
-	annotationProcessor 'org.projectlombok:lombok:1.18.38'
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.42'
+	annotationProcessor 'org.projectlombok:lombok:1.18.42'
 	// end::actuator[]
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// tag::tests[]
 	// Add Spring Boot's core testing module
 	testImplementation 'org.springframework.boot:spring-boot-test'
 
-	testCompileOnly 'org.projectlombok:lombok:1.18.38'
-	testAnnotationProcessor 'org.projectlombok:lombok:1.18.38'
+	testCompileOnly 'org.projectlombok:lombok:1.18.42'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.42'
 	testImplementation platform('org.junit:junit-bom:5.13.2')
 	testImplementation 'org.junit.jupiter:junit-jupiter'
 	testImplementation 'io.projectreactor:reactor-test' // Add this for StepVerifier
