@@ -1,4 +1,4 @@
-import { type ChangeEvent, type KeyboardEvent, type MouseEvent, useState } from 'react';
+import { type ChangeEvent, type KeyboardEvent, type MouseEvent, useId, useState } from 'react';
 import { addMessage } from '../lib/api';
 
 interface ChatFormProps {
@@ -33,7 +33,7 @@ const ChatForm = ({ channelId, sender }: ChatFormProps) => {
   return (
     <form>
       <input
-        id="message"
+        id={useId()}
         type="text"
         placeholder="Please Enter"
         value={message}
