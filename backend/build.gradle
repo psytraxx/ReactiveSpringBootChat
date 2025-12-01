@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id "org.springframework.boot" version "3.5.7"
+	id "org.springframework.boot" version "3.5.8"
     id 'io.spring.dependency-management' version '1.1.7'
     id 'jacoco' // Add JaCoCo plugin
 }
@@ -18,7 +18,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '3.1.1'
-	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.5'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.6'
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.42'
 	annotationProcessor 'org.projectlombok:lombok:1.18.42'
 	// end::actuator[]
