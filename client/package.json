@@ -27,7 +27,7 @@
     "typescript": "^5.9.3",
     "vite": "7.2.6",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.1.1"
+    "vitest": "^4.0.16"
   },
   "scripts": {
     "dev": "vite",
