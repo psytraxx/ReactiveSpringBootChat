@@ -1,9 +1,13 @@
-import { vi } from 'vitest';
+class MockEventSource {
+  onmessage: ((ev: MessageEvent) => void) | null = null;
+  constructor(_url?: string) { }
+  addEventListener(_event: string, _callback: (event: MessageEvent) => void) {
+    if (_event === 'message') this.onmessage = _callback;
+  }
+  close() { }
+}
 
 Object.defineProperty(window, 'EventSource', {
   writable: true,
-  value: vi.fn().mockImplementation(() => ({
-    close: vi.fn(() => {}),
-    addEventListener: vi.fn((_event: string, _callback: (event: MessageEvent) => void) => {})
-  }))
+  value: MockEventSource
 });
