@@ -6,12 +6,13 @@
     "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     //"allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "types": ["node", "vite/client", "@testing-library/jest-dom"],
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -19,5 +20,4 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
-  "types": ["node", "@testing-library/jest-dom"],
 }

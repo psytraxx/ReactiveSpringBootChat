@@ -1,7 +1,7 @@
 /// <reference types="@testing-library/jest-dom" />
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import './mockEventSource.ts';
+import './mockEventSource';
 
 import App from './App';
 
