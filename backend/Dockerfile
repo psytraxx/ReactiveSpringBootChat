@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-alpine
+FROM eclipse-temurin:25-alpine
 
 COPY . /project
 RUN  cd /project && ./gradlew bootJar
