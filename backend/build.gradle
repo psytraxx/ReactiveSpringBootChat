@@ -22,10 +22,9 @@ dependencies {
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.44'
 	annotationProcessor 'org.projectlombok:lombok:1.18.44'
 	// end::actuator[]
-	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// tag::tests[]
-	// Add Spring Boot's core testing module
-	testImplementation 'org.springframework.boot:spring-boot-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-webflux-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive-test'
 
 	testCompileOnly 'org.projectlombok:lombok:1.18.44'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.44'
