@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id "org.springframework.boot" version "3.5.11"
+	id "org.springframework.boot" version "3.5.13"
     id 'io.spring.dependency-management' version '1.1.7'
     id 'jacoco' // Add JaCoCo plugin
 }
@@ -19,16 +19,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '3.1.1'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.6'
-	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.42'
-	annotationProcessor 'org.projectlombok:lombok:1.18.42'
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.44'
+	annotationProcessor 'org.projectlombok:lombok:1.18.44'
 	// end::actuator[]
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// tag::tests[]
 	// Add Spring Boot's core testing module
 	testImplementation 'org.springframework.boot:spring-boot-test'
 
-	testCompileOnly 'org.projectlombok:lombok:1.18.42'
-	testAnnotationProcessor 'org.projectlombok:lombok:1.18.42'
+	testCompileOnly 'org.projectlombok:lombok:1.18.44'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.44'
 	testImplementation platform('org.junit:junit-bom:6.0.3')
 	testImplementation 'org.junit.jupiter:junit-jupiter'
 	testImplementation 'io.projectreactor:reactor-test' // Add this for StepVerifier
