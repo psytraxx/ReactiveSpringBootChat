@@ -22,7 +22,7 @@
     "@vitest/ui": "^4.0.18",
     "core-js": "^3.49.0",
     "identity-obj-proxy": "^3.0.0",
-    "jsdom": "29.0.2",
+    "jsdom": "29.1.1",
     "react-refresh": "^0.18.0",
     "typescript": "^6.0.2",
     "vite": "8.0.10",
