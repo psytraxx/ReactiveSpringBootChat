@@ -18,7 +18,7 @@
     "@types/node": "^26.1.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "6.0.5",
+    "@vitejs/plugin-react": "6.1.1",
     "@vitest/ui": "^4.0.18",
     "core-js": "^3.49.0",
     "identity-obj-proxy": "^3.0.0",
