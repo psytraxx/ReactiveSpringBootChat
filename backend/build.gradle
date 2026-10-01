@@ -19,15 +19,15 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '3.1.1'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.6'
-	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.46'
-	annotationProcessor 'org.projectlombok:lombok:1.18.46'
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.48'
+	annotationProcessor 'org.projectlombok:lombok:1.18.48'
 	// end::actuator[]
 	// tag::tests[]
 	testImplementation 'org.springframework.boot:spring-boot-starter-webflux-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive-test'
 
-	testCompileOnly 'org.projectlombok:lombok:1.18.46'
-	testAnnotationProcessor 'org.projectlombok:lombok:1.18.46'
+	testCompileOnly 'org.projectlombok:lombok:1.18.48'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.48'
 	testImplementation platform('org.junit:junit-bom:6.1.3')
 	testImplementation 'org.junit.jupiter:junit-jupiter'
 	testImplementation 'io.projectreactor:reactor-test' // Add this for StepVerifier
