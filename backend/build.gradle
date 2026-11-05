@@ -43,6 +43,11 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+	testLogging {
+		events "failed"
+		exceptionFormat "full"
+		showStandardStreams = true
+	}
 	finalizedBy jacocoTestReport // report is always generated after tests run
 }
 
