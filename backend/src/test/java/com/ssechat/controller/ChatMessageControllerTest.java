@@ -12,6 +12,8 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
+import org.slf4j.LoggerFactory;
+import org.testcontainers.containers.output.Slf4jLogConsumer;
 import org.testcontainers.mongodb.MongoDBContainer;
 import org.testcontainers.utility.DockerImageName;
 import reactor.core.publisher.Flux;
@@ -33,10 +35,12 @@ class ChatMessageControllerTest {
     // the JUnit extension order could let Spring build the context (and read
     // the dynamic properties below) before the container was up, failing with
     // "MongoDBContainer should be started first". Ryuk removes it after the run.
-    static final MongoDBContainer mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:8"));
+    static final MongoDBContainer mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:8"))
+            .withLogConsumer(new Slf4jLogConsumer(LoggerFactory.getLogger("mongo")));
 
     static {
         mongoDBContainer.start();
+        LoggerFactory.getLogger("mongo").info("container running={} url={}", mongoDBContainer.isRunning(), mongoDBContainer.getReplicaSetUrl());
     }
 
     @DynamicPropertySource
