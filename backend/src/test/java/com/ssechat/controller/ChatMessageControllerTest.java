@@ -4,27 +4,23 @@ import com.ssechat.model.ChatMessage;
 import com.ssechat.repository.ChatMessageRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webtestclient.autoconfigure.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
+import org.slf4j.LoggerFactory;
+import org.testcontainers.containers.output.Slf4jLogConsumer;
 import org.testcontainers.mongodb.MongoDBContainer;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
 
-@ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
-@Testcontainers
 class ChatMessageControllerTest {
 
     private static final String CHANNEL_1 = "1";
@@ -35,8 +31,19 @@ class ChatMessageControllerTest {
     private static final String SENDER_CH2 = "test-sender-ch2";
     private static final String CHATS_URI = "/chats/stream?channelId=" + CHANNEL_1;
 
-    @Container
-    static MongoDBContainer mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:8"));
+    // Started in a static initializer rather than via @Testcontainers/@Container:
+    // the JUnit extension order could let Spring build the context (and read
+    // the dynamic properties below) before the container was up, failing with
+    // "MongoDBContainer should be started first". Ryuk removes it after the run.
+    // mongo:7.0, not 8+: MongoDB 8.0 and later refuse to start on the Linux
+    // 6.19-7.0.13 kernels GitHub's runners use (SERVER-121912). Move back up
+    // once the runners' kernel (or MongoDB's check) moves on.
+    static final MongoDBContainer mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:7.0"))
+            .withLogConsumer(new Slf4jLogConsumer(LoggerFactory.getLogger("mongo")));
+
+    static {
+        mongoDBContainer.start();
+    }
 
     @DynamicPropertySource
     static void setProperties(DynamicPropertyRegistry registry) {
