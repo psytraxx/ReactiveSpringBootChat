@@ -21,9 +21,7 @@ on:
 
 jobs:
   build:
-    # Pinned: MongoDB 8 (mongo:8 in the tests) refuses to start on Linux
-    # 6.19+ (SERVER-121912), and ubuntu-latest (26.04) runs a newer kernel.
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: backend
