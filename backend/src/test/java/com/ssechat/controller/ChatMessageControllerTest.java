@@ -35,7 +35,10 @@ class ChatMessageControllerTest {
     // the JUnit extension order could let Spring build the context (and read
     // the dynamic properties below) before the container was up, failing with
     // "MongoDBContainer should be started first". Ryuk removes it after the run.
-    static final MongoDBContainer mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:8"))
+    // mongo:7.0, not 8+: MongoDB 8.0 and later refuse to start on the Linux
+    // 6.19-7.0.13 kernels GitHub's runners use (SERVER-121912). Move back up
+    // once the runners' kernel (or MongoDB's check) moves on.
+    static final MongoDBContainer mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:7.0"))
             .withLogConsumer(new Slf4jLogConsumer(LoggerFactory.getLogger("mongo")));
 
     static {
