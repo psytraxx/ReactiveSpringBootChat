@@ -40,7 +40,6 @@ class ChatMessageControllerTest {
 
     static {
         mongoDBContainer.start();
-        LoggerFactory.getLogger("mongo").info("container running={} url={}", mongoDBContainer.isRunning(), mongoDBContainer.getReplicaSetUrl());
     }
 
     @DynamicPropertySource
